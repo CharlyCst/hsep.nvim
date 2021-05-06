@@ -26,5 +26,12 @@ nmap <Leader>- :HSep<CR>
 
 ### Install
 
-TODO
+**With Plug**:
+
+```vim
+call plug#begin('~/.config/nvim/plugged')
+" Add this ↴
+Plug 'CharlyCst/hsep.nvim'
+call plug#end()
+```
 
