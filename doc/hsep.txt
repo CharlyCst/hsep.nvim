@@ -12,7 +12,7 @@ To learn more, contribute or submit an issue:
 https://github.com/CharlyCst/hsep.nvim
 
 ================================================================================
-USAGE                                                               *hsep-usage*
+USAGE                                                       *:HSep* *hsep-usage*
 
 To insert an horizontal separator below the cursor, use:
 
