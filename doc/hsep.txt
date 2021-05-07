@@ -1,0 +1,29 @@
+hsep.txt	For Nvim 0.4.4	Last change: 2021 May 07
+
+// ————————————————————————— Horizontal Separators —————————————————————————— //
+
+================================================================================
+                                                                     *hsep.nvim*
+
+HSep.nvim is a small plugin for inserting vertical separators with centered
+text as comments in your code.
+
+To learn more, contribute or submit an issue:
+https://github.com/CharlyCst/hsep.nvim
+
+================================================================================
+USAGE                                                               *hsep-usage*
+
+To insert an horizontal separator below the cursor, use:
+
+>
+	:HSep
+<
+
+This will open a floating window and trigger insert mode. Pressing Enter will
+close the window and insert a separator with the text of the window's buffer
+centered.
+Pressing Exit will close the window without inserting a separator.
+
+
+vim:tw=78:ts=8:expandtab:noet:ft=help:norl:

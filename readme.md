@@ -4,7 +4,7 @@
 
 ```
 
-A simple Neovim plugin to insert vertical separators in your code with centered text.
+A simple Neovim plugin to insert vertical separators with centered text in your code.
 
 ### Features
 
@@ -25,6 +25,8 @@ nmap <Leader>- :HSep<CR>
 ```
 
 ### Install
+
+HSep require Neovim 0.4.4 or later.
 
 **With Plug**:
 
