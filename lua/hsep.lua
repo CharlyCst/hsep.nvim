@@ -21,10 +21,33 @@ local comments = {
     cpp    = '//',
 }
 
+
+-- ————————————————————————————————— Utils —————————————————————————————————— --
+
+-- TODO: get the comments & width here
+
 -- ——————————————————————————————— Separators ——————————————————————————————— --
 
 local function build_separator(text, comment)
     local total_width = 80
+
+    -- check g:hsep_width
+    -- TODO: use vim.g once 0.5 hit stable
+    local override_width = api.nvim_get_var('hsep_width')
+    if type(override_width) == 'number' then
+        total_width = override_width
+    end
+
+    -- check g:hsep_language_width
+    -- TODO: use vim.g once 0.5 hit stable
+    local language_specific_width = api.nvim_get_var('hsep_language_width')
+    if type(language_specific_width) == 'table' then
+        if type(language_specific_width[filetype]) == 'number' then
+            total_width = language_specific_width[filetype]
+        end
+    end
+
+    -- build separator
     local separator = ''
     if string.len(text) == 0 then
         separator = comment .. ' ' .. string.rep('—', total_width - 2 - 2 * string.len(comment)) .. ' ' .. comment
@@ -39,10 +62,20 @@ end
 
 local function insert_separator()
     local text = api.nvim_buf_get_lines(buf, 0, 1, false)[1]
+
+    -- get comment from filetype, or user provided table
     local comment = comments[filetype]
     if not comment then
         comment = '//'
     end
+    -- local override_comments = api.nvim_get_var('hsep_language_comments')
+    local override_comments = vim.g.hsep_language_comments
+    if type(override_comments) == 'table' then
+        if type(override_comments[filetype]) == 'string' then
+            comment = override_comments[filetype]
+        end
+    end
+
     local separator = build_separator(text, comment)
     require'hsep'._close_window()
     api.nvim_buf_set_lines(0, line, line, false, {separator})
