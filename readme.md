@@ -16,17 +16,19 @@ A simple Neovim plugin to insert vertical separators with centered text in your 
 
 ### Usage
 
-Simply use `:HSep`, type your text and press Enter.
+- To insert a new separator use `:HSep`, type your text and press Enter.
+- To search separators use `:Hsep search`.
 
-Or better add a binding for it:
+Here are a few optionnal mappings to make things easier
 
 ```vim
-nmap <Leader>- :HSep<CR>
+nmap <Leader>-- :HSep<CR>
+nmap <Leader>-s :HSep search<CR>
 ```
 
 ### Install
 
-HSep require Neovim 0.4.4 or later.
+HSep require Neovim 0.5.0 or later.
 
 **With Plug**:
 
