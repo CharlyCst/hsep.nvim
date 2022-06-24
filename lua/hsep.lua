@@ -12,6 +12,7 @@ local comments = {
     sh     = '#',
     python = '#',
     vim    = '"',
+    tex    = '%',
     lua    = '--',
     swift  = '//',
     rust   = '//',
