@@ -2,11 +2,7 @@ local api = vim.api
 
 -- —————————————————————————————— Configuration ————————————————————————————— --
 
--- the dimension of our window
-local win_width = 30
-local win_height = 1
-
--- used to select the appropriate comment symbols when :filetype is on
+-- Used to select the appropriate comment symbols when :filetype is on
 local comments = {
     sh     = '#',
     python = '#',

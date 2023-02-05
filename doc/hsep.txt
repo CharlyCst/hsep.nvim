@@ -26,4 +26,36 @@ Lua API~
 
 TODO
 
+================================================================================
+CONFIGURATION                                              *:HSep* *hsep-config*
+
+HSep is configured through global variables.
+
+Per-Language Comment Characters:                        *hsep_language_comments*
+
+			Configures the comment character(s) to use on a
+			per-language basis.
+>
+    vim.g.hsep_language_comments = {
+        lua = "---",
+    }
+<
+
+Separator Width:                                                    *hsep_width*
+
+			Configures the separator width. Default to 80.
+>
+    vim.g.hsep_width = 60
+<
+
+Per-Language Separator Width:                              *hsep_language_width*
+
+			Configures the separator width on a per-language
+			basis. Overrides the default width.
+>
+    vim.g.hsep_language_width = {
+        lua = 70,
+    }
+<
+
 vim:tw=78:ts=8:expandtab:noet:ft=help:norl:
