@@ -1,4 +1,4 @@
-hsep.txt	For Nvim 0.5.0	Last change: 2021 Aug 21
+hsep.txt	For Nvim 0.6.0	Last change: 2021 Aug 21
 
 // ————————————————————————— Horizontal Separators —————————————————————————— //
 
@@ -17,11 +17,7 @@ USAGE                                                       *:HSep* *hsep-usage*
 VimL API~
                                                                    *hsep-insert*
 :Hsep [arg]             The main HSep command. If no argument [arg] is given
-			open a floating window and trigger insert mode.
-			Pressing Enter will close the window and insert a
-			separator with text of the wondow's buffer centered.
-			Pressing Exit will close the window without inserting
-			the separator.
+			open an input prompt asking for the separator text.
 
 			In case "search" is given as argument, search the
 			current buffer for separators using the `/` command.

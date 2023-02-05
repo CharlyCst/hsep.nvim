@@ -28,7 +28,7 @@ nmap <Leader>-s :HSep search<CR>
 
 ### Install
 
-HSep require Neovim 0.5.0 or later.
+HSep require Neovim 0.6.0 or later.
 
 **With Plug**:
 
