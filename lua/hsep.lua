@@ -98,7 +98,7 @@ local function hsep(args)
     end
 
     -- Default: insert separator
-    vim.ui.input({ prompt = 'Separetor' }, function(input)
+    vim.ui.input({ prompt = 'Separator' }, function(input)
 
         -- Check for input
         if input == nil then
