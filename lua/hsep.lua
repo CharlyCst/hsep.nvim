@@ -5,6 +5,7 @@ local api = vim.api
 -- Used to select the appropriate comment symbols when :filetype is on
 local comments = {
     sh     = '#',
+    make   = '#',
     python = '#',
     vim    = '"',
     tex    = '%',
