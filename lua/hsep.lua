@@ -9,6 +9,7 @@ local comments = {
     python = '#',
     vim    = '"',
     tex    = '%',
+    racket = ";",
     lua    = '--',
     swift  = '//',
     rust   = '//',
