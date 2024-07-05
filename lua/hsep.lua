@@ -11,6 +11,7 @@ local comments = {
     tex    = '%',
     racket = ";",
     lua    = '--',
+    ocaml  = {'(*', '*)'},
     swift  = '//',
     rust   = '//',
     scala  = '//',
@@ -33,9 +34,15 @@ local function get_comment_string(filetype)
 
     local override_comments = vim.g.hsep_language_comments
     if type(override_comments) == 'table' then
-        if type(override_comments[filetype]) == 'string' then
+        if type(override_comments[filetype]) == 'string'
+            or type(override_comments[filetype]) == 'table' then
             comment = override_comments[filetype]
         end
+    end
+
+    -- If left and right comment delimiters are the same
+    if type(comment) == 'string' then
+        comment = {comment, comment}
     end
 
     return comment
@@ -66,17 +73,19 @@ end
 
 -- Return the separator for a given text.
 local function build_separator(text, filetype)
-    local comment = get_comment_string(filetype)
+    local comments = get_comment_string(filetype)
     local total_width = get_separator_width(filetype)
+    local comment_len = string.len(comments[1]) + string.len(comments[2])
     local separator = ''
 
+
     if string.len(text) == 0 then
-        separator = comment .. ' ' .. string.rep(sep, total_width - 2 - 2 * string.len(comment)) .. ' ' .. comment
+        separator = comments[1] .. ' ' .. string.rep(sep, total_width - 2 - comment_len) .. ' ' .. comments[2]
     else
-        local separator_width = total_width - string.len(text) - 2 * string.len(comment) - 4
+        local separator_width = total_width - string.len(text) - comment_len - 4
         local left_separator = string.rep(sep, math.floor(separator_width/2))
         local right_separator = string.rep(sep, math.ceil(separator_width/2))
-        separator = comment .. ' ' .. left_separator .. ' ' .. text .. ' ' .. right_separator .. ' ' .. comment
+        separator = comments[1] .. ' ' .. left_separator .. ' ' .. text .. ' ' .. right_separator .. ' ' .. comments[2]
     end
     return separator
 end
