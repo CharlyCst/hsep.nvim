@@ -18,6 +18,7 @@ local comments = {
     go     = '//',
     java   = '//',
     cpp    = '//',
+    sql    = '--',
 }
 
 -- The separator
